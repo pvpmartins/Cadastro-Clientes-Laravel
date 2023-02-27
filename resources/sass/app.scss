@@ -8,10 +8,12 @@
 @import "bootstrap/scss/bootstrap";
 
 form {
-    height: 9rem;
+    height: fit-content;
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
+
+    align-items: flex-start;
     padding: 1rem;
     .form-content {
         padding: 1rem 0.4rem;
@@ -28,10 +30,21 @@ form {
 .form-content-2 {
     padding: 1rem 0.4rem;
     width: 100%;
-    display: flex;
+    display: fle;
     .form-group {
         display: flex;
         align-items: center;
+        width: 15rem;
+    }
+    .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .btn {
+            position: relative;
+            right: 13px;
+            width: 5rem;
+        }
     }
 }
 .btn {

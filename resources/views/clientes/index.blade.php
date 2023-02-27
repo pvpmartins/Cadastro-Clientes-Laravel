@@ -3,6 +3,7 @@
 @section('content')
 <form class="mt-4 border border-dark rounded"  method="POST" action="{{ route('clientes.store') }}">
     @csrf
+    <label for="">Cadastro Cliente</label>
     <div class="form-content  border border-dark rounded">
 
     <div class="row-1 d-flex justify-content-between">
@@ -53,46 +54,51 @@
 </form>
 
 <form class="border border-dark rounded" action="{{ route('clientes.search') }}" method="GET">
-    <div class="form-content-2  border border-dark rounded" >
+<label for="">Consulta Cliente</label>    
+<div class="form-content-2  border border-dark rounded" >
 
-    
-    <div class="form-group">
-        <label for="cpf">CPF:</label>
-        <input type="text" name="cpf" id="cpf" class="form-control">
+    <div class="row-1 row">
+
+        <div class="form-group">
+            <label for="cpf">CPF:</label>
+            <input type="text" name="cpf" id="cpf" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="cliente">Cliente:</label>
+            <input type="text" name="cliente" id="cliente" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="date" name="data_nascimento" id="data_nascimento" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="sexo">Sexo:</label>
+            <select name="sexo" id="sexo" class="form-control">
+                <option value="">Selecione</option>
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+            </select>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="cliente">cliente:</label>
-        <input type="text" name="cliente" id="cliente" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="data_nascimento">Data de Nascimento:</label>
-        <input type="date" name="data_nascimento" id="data_nascimento" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="sexo">Sexo:</label>
-        <select name="sexo" id="sexo" class="form-control">
-            <option value="">Selecione</option>
-            <option value="M">Masculino</option>
-            <option value="F">Feminino</option>
-        </select>
-    </div>
-    <div class="form-group">
+    <div class="row-2 row">
+        <div class="form-group">
             <label for="estado_id">Estado</label>
             @component('components.dropdown', [
                 'name' => 'estado_id',
                 'options' => $estados
-            ])
-            @endcomponent
+                ])
+                @endcomponent
         </div>
-    <div class="form-group">
-        <label for="cidade">Cidade:</label>
-        <input type="text" name="cidade" id="cidade" class="form-control">
+        <div class="form-group">
+            <label for="cidade">Cidade:</label>
+            <input type="text" name="cidade" id="cidade" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
     </div>
-    <button type="submit" class="btn btn-primary">Buscar</button>
     </div>
 </form>
 
-<table class="table mt-4 table-dark">
+<table class="table mt-4 border border-round">
     <thead>
         <tr>
             <th></th>
